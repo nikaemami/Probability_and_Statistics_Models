@@ -3,35 +3,15 @@ Implementation of different basic probability and statistics models.
 
 <h2>Random Fibonacci Series</h2>
 
-The Random Fibonacci Series is calculated with the expression below, where Beta is a discrete random variable which gets the value of +1 or -1 with equal probabilities. It has been proved that the absolute value of this series converges to α^n. 
-
-$lim(1+\frac{1}{n}\)^{n}$
+The Random Fibonacci Series contains a coefficient Beta , which is a discrete random variable which gets the value of +1 or -1 with equal probabilities. It has been proved that the absolute value of this series converges to α^n. 
 
 The **95% confidence interval** for α:
 
 ```ruby
-def fibonacci(n):
-    l=[-1,1]
-    B=np.random.choice(l)
-    if n < 0:
-        print("incorrect input")
-    elif n == 0:
-        return 0
-    elif n == 1 or n == 2:
-        return 1
-    else:
-        print
-        return fibonacci(n-1) + B*fibonacci(n-2)
-```
-
-```ruby
-for i in range(num):
-    Xi=np.abs(fibonacci(N))
-    Xi=Xi**(1/N)
-    summ+=Xi
-    sample.append(Xi)
+Xi=np.abs(fibonacci(N))
+Xi=Xi**(1/N)
+summ+=Xi
 M=summ/num
-S=0
 for i in range(num):
     S+=(sample[i]-M)**2/(num-1)
 S=S**0.5
@@ -47,20 +27,6 @@ Assuming that the maximum value in this series is fmax, with an **exponential di
 
 ```ruby
 def fib_max(n):
-    a = 0
-    b = 1
-    summ = 1
-    count = 1
-    fib_=[]
-    l=[-1,1]
-    while(count <= n):
-        fib_.append(summ)
-        a = b
-        b = summ
-        B=np.random.choice(l)
-        summ = a + B*b
-        count += 1
-    return max(fib_)
 ```
 
 The result:
@@ -122,7 +88,7 @@ We see that the statement holds true.
 
 The Napierian number is the limit below:
 
-<img src="images/37.png" width="130" height="55">
+$lim(1+\frac{1}{n}\)^{n}$
 
 The goal is to estimate this number with the Monte Carlo method. First, we consider the curve and the rectangle below:
 
@@ -163,22 +129,6 @@ The goal is to show that the expression below converges to the value of 0.5772 (
 
 <img src="images/33.png" width="222" height="77">
 
-```ruby
-while (n<=500):
-    sum_ep=0
-    r=1
-    while(r<=n):
-        x=float(n/r)
-        y=math.ceil(x)
-        ep=y-x
-        sum_ep+=ep
-        r+=1
-    if(n==1):
-        epsilon.append(0)
-    else:
-        epsilon.append(float(sum_ep/(n-1)))
-    n+=1
-````
 The results below show the convergence:
 
 ![My Image](images/34.png)
@@ -187,20 +137,6 @@ The error is computed with the expression below:
 
 <img src="images/35.png" width="170" height="65">
 
-```ruby
-while (n<=500):
-    r1=np.random.randint(1,n)
-    x=float(n/r1)
-    y=math.ceil(x)
-    ep1=y-x
-    epsilon1.append(ep1)
-    r2=np.random.randint(1,n+1)
-    x2=float((n+1)/r2)
-    y2=math.ceil(x2)
-    ep2=y2-x2
-    epsilon2.append(ep2)
-    n+=1
-```
 The results:
 
 ![My Image](images/36.png)
@@ -294,9 +230,8 @@ def exp_inverse(Fx):
     x=-np.log(1-Fx)
     return x
     
-for i in range (100):
-    Fx=np.random.uniform(0,1)
-    x_exp=exp_inverse(Fx)
+Fx=np.random.uniform(0,1)
+x_exp=exp_inverse(Fx)
 ```
 
 ![My Image](images/12.png)
@@ -304,14 +239,10 @@ for i in range (100):
 Normal:
 
 ```ruby
-def norm_inverse(Fx):
-    from scipy.stats import norm
-    x=norm.ppf(Fx)
-    return x
+def norm_inverse(Fx)
 
-for i in range (100):
-    Fx=np.random.uniform(0,1)
-    x_norm=norm_inverse(Fx)
+Fx=np.random.uniform(0,1)
+x_norm=norm_inverse(Fx)
 ```
 
 ![My Image](images/13.png)
@@ -396,13 +327,11 @@ Implementation of the problem above with total number of generated points equal 
 
 ```ruby
 def estimation(n):
-    in_circle=0
-    for i in range (n):
-        x=np.random.uniform(0,2)
-        y=np.random.uniform(0,2)
-        if((((x-1)**2+(y-1)**2)**(0.5))<1):
-            in_circle+=1
-    return (float(in_circle/n))
+x = np.random.uniform(0,2)
+y = np.random.uniform(0,2)
+if((((x-1)**2+(y-1)**2)**(0.5))<1):
+    in_circle+=1
+return (float(in_circle/n))
 ```
 
 The results are as below:
@@ -447,18 +376,11 @@ Result:
 The programming view:
 
 ```ruby
-or i in range(59):
-    favorable=0
-    for j in range(99):
-        classes=[]
-        for k in range (i+2):
-            classes.append(random.randint(1,320))
-        classes.sort()
-        for k in range (i+1):
-            if(classes[k]==classes[k+1]):
-                favorable+=1
-                break       
-    probability.append(favorable/100)
+classes.append(random.randint(1,320))
+classes.sort()
+if(classes[k]==classes[k+1]):
+    favorable+=1    
+probability.append(favorable/100)
 ```
 
 Result:
