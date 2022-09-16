@@ -1,6 +1,210 @@
 # Probability_and_Statistics_Models
 Implementation of different basic probability and statistics models.
 
+<h2>Random Fibonacci Series</h2>
+
+The Random Fibonacci Series is calculated with the expression below, where Beta is a discrete random variable which gets the value of +1 or -1 with equal probabilities. It has been proved that the absolute value of this series converges to α^n. 
+
+<img src="images/37.png" width="227" height="44">
+
+The **95% confidence interval** for α:
+
+```ruby
+def fibonacci(n):
+    l=[-1,1]
+    B=np.random.choice(l)
+    if n < 0:
+        print("incorrect input")
+    elif n == 0:
+        return 0
+    elif n == 1 or n == 2:
+        return 1
+    else:
+        print
+        return fibonacci(n-1) + B*fibonacci(n-2)
+```
+
+```ruby
+for i in range(num):
+    Xi=np.abs(fibonacci(N))
+    Xi=Xi**(1/N)
+    summ+=Xi
+    sample.append(Xi)
+M=summ/num
+S=0
+for i in range(num):
+    S+=(sample[i]-M)**2/(num-1)
+S=S**0.5
+```
+
+The result:
+
+```
+CI=[ 1.102852823326828 , 1.237871185627803 ]
+```
+
+Assuming that the maximum value in this series is fmax, with an **exponential distribution**. Estimating the value of Lambda in this distribution:
+
+```ruby
+def fib_max(n):
+    a = 0
+    b = 1
+    summ = 1
+    count = 1
+    fib_=[]
+    l=[-1,1]
+    while(count <= n):
+        fib_.append(summ)
+        a = b
+        b = summ
+        B=np.random.choice(l)
+        summ = a + B*b
+        count += 1
+    return max(fib_)
+```
+
+The result:
+
+```
+0.016825103053756205
+```
+
+Estimating the value of Lambda with the histogram of the distribution:
+
+```ruby
+plt.hist(plot_sample,bins=20,density=True,range=[0,200])
+def f(x): 
+    return (lambda_*math.exp(-1*landa*x))
+```
+
+Comparing the results above:
+
+![My Image](images/41.png)
+
+<h2>Girko Circular Law</h2>
+
+The Girko Circular Law in probability states that the eigenvalues in a n x n matrix where the entries are **i.i.d.** values from a **normal distribution** with a mean of 0 and std of 1/n, converge inside a circle of radius = 1, if n goes to infinity.
+
+Studying this law by plotting different **normal** and **uniform** distributions for different values of n:
+
+Normal:
+
+```ruby
+M[i][j]=np.random.normal(0,1/(n**0.5))
+eig_value,eig_vect=np.linalg.eig(M)
+```
+
+![My Image](images/42.png)
+
+Uniform:
+
+```ruby
+def Girko (n):
+    for num in range(100):
+        M=np.zeros((n,n))
+        for i in range (n):
+            for j in range (n):
+                M[i][j]=np.random.uniform(-(3/n)**0.5,(3/n)**0.5)
+        eig_value,eig_vect=np.linalg.eig(M)
+        X=[x.real for x in eig_value] 
+        Y=[x.imag for x in eig_value]
+```
+
+![My Image](images/43.png)
+
+![My Image](images/43.png)
+
+![My Image](images/43.png)
+
+We see that the statement holds true.
+
+<h2>Estimation of Napierian number with Monte Carlo method</h2>
+
+The Napierian number is the limit below:
+
+<img src="images/37.png" width="130" height="55">
+
+The goal is to estimate this number with the Monte Carlo method. First, we consider the curve and the rectangle below:
+
+<img src="images/38.png" width="390" height="260">
+
+According to the **law of large numbers**, the proportion of the rectangle's area behind the curve to the total area, is equal to the number of points under the curve below to the total of them:
+
+<img src="images/40.png" width="375" height="250">
+
+So the Napierian number can be estimated with Monte Carlo method. Assuming than n = 100, the results are as below:
+
+```ruby
+def nepper_calculator(n):
+    i=1
+    summ=0
+    for i in range (n):
+        x=np.random.uniform(0,1)
+        y=np.random.uniform(math.exp(-1),1)
+        if (y<math.exp(-x)):
+            summ+=1
+    S_total=1*(1-math.exp(-1))
+    S=(summ/100)*S_total
+    nepper=2/(1-S)
+    return nepper
+```
+
+The result:
+
+```
+2.710593651084598
+```
+
+![My Image](images/39.png)
+
+<h2>Euler-Mascheroni Constant</h2>
+
+The goal is to show that the expression below converges to the value of 0.5772 (the Euler-Mascheroni constant)
+
+<img src="images/33.png" width="222" height="77">
+
+```ruby
+while (n<=500):
+    sum_ep=0
+    r=1
+    while(r<=n):
+        x=float(n/r)
+        y=math.ceil(x)
+        ep=y-x
+        sum_ep+=ep
+        r+=1
+    if(n==1):
+        epsilon.append(0)
+    else:
+        epsilon.append(float(sum_ep/(n-1)))
+    n+=1
+````
+The results below show the convergence:
+
+![My Image](images/34.png)
+
+The error is computed with the expression below:
+
+<img src="images/35.png" width="170" height="65">
+
+```ruby
+while (n<=500):
+    r1=np.random.randint(1,n)
+    x=float(n/r1)
+    y=math.ceil(x)
+    ep1=y-x
+    epsilon1.append(ep1)
+    r2=np.random.randint(1,n+1)
+    x2=float((n+1)/r2)
+    y2=math.ceil(x2)
+    ep2=y2-x2
+    epsilon2.append(ep2)
+    n+=1
+```
+The results:
+
+![My Image](images/36.png)
+
 <h2>Poisson Distribution</h2>
 
 Implementing a Poisson distribution for the number of people riding a bus. Consider that number of people who get on a bus comes from a Poisson distribution, and that 3 people get on a bus per minute on average. Estimate the distribution for a timeline of a 100 days.
