@@ -5,7 +5,7 @@ Implementation of different basic probability and statistics models.
 
 The Random Fibonacci Series is calculated with the expression below, where Beta is a discrete random variable which gets the value of +1 or -1 with equal probabilities. It has been proved that the absolute value of this series converges to α^n. 
 
-<img src="images/37.png" width="227" height="44">
+$lim(1+\frac{1}{n}\)^{n}$
 
 The **95% confidence interval** for α:
 
