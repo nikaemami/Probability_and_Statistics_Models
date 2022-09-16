@@ -116,7 +116,7 @@ for i in range (100):
 
 Using Mesh in MATLAB, the following graphs are for **normal distributions** with means of 0, and stds and correlation coeeficients as below:
 
-<img src="images/14.png" width="233" height="41">
+<h2>1)</h2><img src="images/14.png" width="233" height="41">
 
 ```
 normal_distribution=n(0,1,1,x,y);
@@ -127,7 +127,7 @@ surf(x,y,normal_distribution)
 
 <img src="images/26.png" width="261.5" height="194.5">
 
-<img src="images/16.png" width="244" height="38">
+<h2>2)</h2><img src="images/16.png" width="244" height="38">
 
 ```
 normal_distribution=n(0.8,1,1,x,y);
@@ -138,7 +138,7 @@ surf(x,y,normal_distribution)
 
 <img src="images/27.png" width="261.5" height="194.5">
 
-<img src="images/18.png" width="262" height="38">
+<h2>3)</h2><img src="images/18.png" width="262" height="38">
 
 ```
 normal_distribution=n(-0.8,1,1,x,y);
@@ -149,7 +149,7 @@ surf(x,y,normal_distribution)
 
 <img src="images/28.png" width="261.5" height="194.5">
 
-<img src="images/20.png" width="222" height="33">
+<h2>4)</h2><img src="images/20.png" width="222" height="33">
 
 ```
 normal_distribution=n(0,1,2,x,y);
@@ -160,7 +160,7 @@ surf(x,y,normal_distribution)
 
 <img src="images/29.png" width="261.5" height="194.5">
 
-<img src="images/22.png" width="241" height="38">
+<h2>5)</h2><img src="images/22.png" width="241" height="38">
 
 ```
 normal_distribution=n(0.8,1,2,x,y);
@@ -171,7 +171,7 @@ surf(x,y,normal_distribution)
 
 <img src="images/30.png" width="261.5" height="194.5">
 
-<img src="images/24.png" width="246" height="39">
+<h2>6)</h2><img src="images/24.png" width="246" height="39">
 
 ```
 normal_distribution=n(0.8,1,5,x,y);
