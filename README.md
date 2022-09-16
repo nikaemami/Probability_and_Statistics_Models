@@ -20,21 +20,21 @@ The result is as follows:
 
 Assuming that X, Y are independant and come from a distribution of U[0,1], the following expressions were computed:
 
-<img src="images/4.png" width="292" height="53">
+<img src="images/4.png" width="146" height="26.5">
 
 ```ruby
 if( X**2 + Y**3 > 0.75 ):
         n+=1
 ```
 
-<img src="images/5.png" width="292" height="53">
+<img src="images/5.png" width="146" height="26.5">
 
 ```ruby
 if( X + Y > 5 * X  * (Y**(0.5))):
         n+=1
 ```
 
-<img src="images/6.png" width="178" height="78">
+<img src="images/6.png" width="89" height="39">
 
 Monte Carlo:
 
@@ -49,7 +49,7 @@ Result:
 
 ![My Image](images/9.png)
 
-<img src="images/7.png" width="151" height="71">
+<img src="images/7.png" width="75.5" height="35.5">
 
 Monte Carlo:
 
@@ -64,7 +64,7 @@ Result:
 
 ![My Image](images/10.png)
 
-<img src="images/8.png" width="152" height="68">
+<img src="images/8.png" width="76" height="34">
 
 Monte Carlo:
 
@@ -122,9 +122,10 @@ Using Mesh in MATLAB, the following graphs are for **normal distributions** with
 normal_distribution=n(0,1,1,x,y);
 surf(x,y,normal_distribution)
 ```
-<img src="images/15.png" width="420" height="340">
 
-<img src="images/26.png" width="523" height="389">
+<img src="images/15.png" width="210" height="170">
+
+<img src="images/26.png" width="261.5" height="194.5">
 
 <img src="images/16.png" width="244" height="38">
 
@@ -133,20 +134,20 @@ normal_distribution=n(0.8,1,1,x,y);
 surf(x,y,normal_distribution)
 ```
 
-![My Image](images/17.png)
+<img src="images/17.png" width="210" height="170">
 
-![My Image](images/27.png)
+<img src="images/27.png" width="261.5" height="194.5">
 
-<img src="images/18.png" width="2962" height="38">
+<img src="images/18.png" width="262" height="38">
 
 ```
 normal_distribution=n(-0.8,1,1,x,y);
 surf(x,y,normal_distribution)
 ```
 
-![My Image](images/19.png)
+<img src="images/19.png" width="210" height="170">
 
-![My Image](images/28.png)
+<img src="images/28.png" width="261.5" height="194.5">
 
 <img src="images/20.png" width="222" height="33">
 
@@ -155,9 +156,9 @@ normal_distribution=n(0,1,2,x,y);
 surf(x,y,normal_distribution)
 ```
 
-![My Image](images/21.png)
+<img src="images/21.png" width="210" height="170">
 
-![My Image](images/29.png)
+<img src="images/29.png" width="261.5" height="194.5">
 
 <img src="images/22.png" width="241" height="38">
 
@@ -166,9 +167,9 @@ normal_distribution=n(0.8,1,2,x,y);
 surf(x,y,normal_distribution)
 ```
 
-![My Image](images/23.png)
+<img src="images/23.png" width="210" height="170">
 
-![My Image](images/30.png)
+<img src="images/30.png" width="261.5" height="194.5">
 
 <img src="images/24.png" width="246" height="39">
 
@@ -177,9 +178,9 @@ normal_distribution=n(0.8,1,5,x,y);
 surf(x,y,normal_distribution)
 ```
 
-![My Image](images/25.png)
+<img src="images/25.png" width="210" height="170">
 
-![My Image](images/31.png)
+<img src="images/31.png" width="261.5" height="194.5">
 
 <h2>Estimation of Pi:</h2>
 
